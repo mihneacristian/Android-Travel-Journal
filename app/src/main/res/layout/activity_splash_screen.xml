@@ -28,4 +28,18 @@ tools:context=".SplashScreen">
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></ImageView>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/author_name"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="8sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/travel_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/travel_background"
+        app:layout_constraintVertical_bias="0.98"></TextView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
