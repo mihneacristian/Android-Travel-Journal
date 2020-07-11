@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">Travel Journal</string>
+    <string name="author_name">POPA MIHNEA CRISTIAN</string>
+    <string name="sign_in">Sign In</string>
+    <string name="title_activity_main_screen">MainScreen</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Username</string>
+    <string name="nav_header_subtitle">User email address</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_favorites">Favorites</string>
+    <string name="menu_about_us">About us</string>
+    <string name="menu_contact">Contact us</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_sign_out">Sign out</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="help_and_feedback">Help &amp; feedback</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel lectus dictum, vestibulum tellus id, dictum lorem. Nunc vel feugiat ligula. Fusce volutpat augue ligula, non rutrum eros rutrum sed. Vivamus pretium velit nisi, vitae condimentum odio aliquam id. Sed congue, eros et imperdiet sollicitudin, nulla risus porttitor ante, at pharetra enim risus vel mauris. Nunc lacinia iaculis orci ut placerat. Integer tempus at dui vel egestas. Nam vitae rutrum turpis. Nunc viverra nibh non diam convallis finibus. Mauris accumsan ante vel quam pretium mollis.
+
+Nullam nibh lacus, vulputate eu metus et, ultricies volutpat lacus. Sed a odio ac purus rutrum venenatis vitae eu ipsum. Donec at felis cursus, auctor elit nec, tincidunt metus. Phasellus faucibus risus nec nisi vulputate interdum. Mauris in mollis orci, eget sollicitudin dolor. Aliquam laoreet quis leo vitae scelerisque. Aenean a tortor libero. Fusce vehicula lacus ac erat laoreet suscipit. Pellentesque sed dignissim dolor.
+
+Sed vitae vulputate massa. Etiam ornare tellus a dui eleifend ullamcorper. Etiam non lectus elementum tortor mattis efficitur. Proin non lacus dolor. Sed eget tortor vitae sem feugiat euismod. Suspendisse aliquam enim orci, quis sodales nisl ullamcorper in. Ut lacinia libero id ipsum pharetra fringilla. Integer tellus orci, ultrices efficitur orci eget, pulvinar pharetra augue. Morbi venenatis tristique eros, nec lacinia sem aliquet sit amet. Maecenas ac justo eget ipsum volutpat imperdiet. Phasellus lacinia lobortis fermentum. Praesent eu ligula aliquet, laoreet justo ac, egestas justo.
+
+Proin interdum tempus dictum. Quisque faucibus sollicitudin dolor, vitae aliquam mi. Praesent turpis augue, volutpat ac orci nec, auctor interdum dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed consectetur, leo nec placerat tincidunt, libero lectus tristique augue, sit amet dignissim nunc sem vitae odio. Aliquam sit amet sagittis turpis. Vivamus sodales tortor urna, eu tristique nisi rutrum nec. Donec cursus turpis at massa placerat, in convallis lectus feugiat. Donec convallis turpis vel dui rhoncus dictum eu ut enim. Proin leo dui, efficitur vel quam sit amet, mollis viverra ligula. Nullam eget eleifend elit. Nam a mi sagittis, consectetur risus sit amet, egestas turpis. Integer ligula leo, bibendum sed nisl eu, suscipit facilisis dui. Donec erat nulla, convallis nec venenatis et, condimentum sed sapien. Sed scelerisque sed erat ac efficitur. Cras ante nisl, auctor ut venenatis ut, auctor id urna.
+
+Ut convallis eleifend imperdiet. In laoreet nulla eu quam maximus, vitae pellentesque arcu blandit. Cras in sem sed nisl semper finibus. Sed fermentum nisi in nibh interdum suscipit. Vestibulum scelerisque euismod facilisis. Praesent eget odio id ligula laoreet dignissim. Maecenas vulputate lacus at tellus vestibulum, vel condimentum leo eleifend. Ut a dolor leo. Aliquam mattis quis ex ut luctus. In odio nunc, ultrices at magna et, sollicitudin tristique elit. Integer ac volutpat dui, et facilisis quam.
+
+Phasellus mollis placerat velit a facilisis. Cras efficitur tempus est, quis tristique velit bibendum luctus. Quisque ultricies a sapien vitae lobortis. Nulla lobortis pretium lacus, non ornare felis tempus sed. Maecenas at lacus scelerisque, faucibus tellus sit amet, semper risus. Etiam fermentum urna justo, at finibus dolor consectetur in. Duis venenatis viverra purus ac commodo. Aliquam erat volutpat.
+
+Phasellus faucibus tellus eros, pretium fringilla turpis eleifend vitae. Etiam sit amet leo enim. Nulla varius congue sapien, in varius odio feugiat a. Proin eget metus vestibulum, consequat nisi in, tincidunt turpis. Duis mattis auctor elit, a lobortis mauris accumsan ac. Nullam venenatis sapien ligula, at lacinia eros ultrices id. Proin aliquam sapien vel egestas tempor. Fusce vel ligula congue, mattis eros et, pharetra quam. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In tincidunt tincidunt mauris, eu auctor quam viverra ut. Vivamus mattis ipsum sed mattis pretium. Phasellus dui neque, maximus id lobortis et, eleifend eu odio.
+
+Cras mollis libero nunc, ut fermentum felis dictum eget. Proin porttitor tellus sit amet vestibulum consequat. Proin gravida mattis mauris nec ultricies. Maecenas placerat ac sem et pharetra. Aenean efficitur suscipit dolor, a molestie ante mollis nec. Maecenas eleifend bibendum elit, non placerat dolor luctus vel. Duis a pharetra enim. Phasellus posuere dui felis, vel sagittis tellus vestibulum vitae. Maecenas venenatis, nibh a elementum scelerisque, ligula dolor consequat ante, nec cursus ligula lacus quis felis. Mauris nec viverra sem, a lobortis quam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean porta mattis mauris ut convallis. Cras dignissim ante id tortor gravida porttitor. Cras a enim fermentum, suscipit elit quis, auctor lacus. Nunc imperdiet mollis congue.
+
+Sed nunc quam, pellentesque a erat eget, ornare dapibus dolor. Duis vel vestibulum odio. Mauris tempus sapien vitae lobortis pulvinar. Morbi porta felis nec ullamcorper condimentum. Integer eleifend a metus et vulputate. Vivamus ullamcorper condimentum elit, quis pretium augue mollis sit amet. Donec non felis maximus, tincidunt sapien id, semper augue. Donec eu dui vel dui convallis hendrerit et sit amet dolor.
+
+Aliquam sed ex euismod, interdum nulla quis, ultricies quam. Curabitur ut lectus magna. Donec at dolor imperdiet libero hendrerit pellentesque euismod in ipsum. Mauris non ante purus. Maecenas fermentum nisl id sapien consequat, sed malesuada tellus feugiat. Nullam porta tristique metus. Suspendisse augue arcu, lacinia non est a, tempus efficitur arcu.</string>
+    <string name="photo_uploaded">Photo Uploaded</string>
+</resources>
