@@ -96,7 +96,7 @@ public class NewTripActivity extends AppCompatActivity {
             if (resultCode == Activity.RESULT_OK) {
                 File f = new File(pathToFile);
                 uploadedPhotoImageView.setImageURI(Uri.fromFile(f));
-                Log.d("tag", "Absolute Url of Image is " + Uri.fromFile(f));
+                Log.d("tag", "Photo URL: " + Uri.fromFile(f));
 
                 Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
                 Uri contentUri = Uri.fromFile(f);
@@ -112,7 +112,7 @@ public class NewTripActivity extends AppCompatActivity {
                 Uri contentUri = data.getData();
                 String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
                 String imageFileName = "TravelJournal_" + timeStamp + "." + getFileExt(contentUri);
-                Log.d("tag", "onActivityResult: Gallery Image Uri:  " + imageFileName);
+                Log.d("tag", "Gallery URI:  " + imageFileName);
                 uploadedPhotoImageView.setImageURI(contentUri);
                 uploadImageToFirebase(imageFileName, contentUri);
             }
@@ -139,7 +139,7 @@ public class NewTripActivity extends AppCompatActivity {
                 image.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
                     public void onSuccess(Uri uri) {
-                        Log.d("tag", "onSuccess: Uploaded Image URL is " + uri.toString());
+                        Log.d("tag", "Uploaded Photo URL: " + uri.toString());
                     }
                 });
                 Toast.makeText(NewTripActivity.this, "Photo Uploaded", Toast.LENGTH_SHORT).show();
