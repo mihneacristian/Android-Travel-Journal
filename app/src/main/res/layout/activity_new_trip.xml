@@ -24,6 +24,7 @@
             android:src="@drawable/ic_baseline_arrow_back_ios_24"></ImageView>
 
         <Button
+            android:id="@+id/addTripButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -31,6 +32,7 @@
             android:layout_margin="16dp"
             android:background="@android:color/transparent"
             android:text="Add trip"
+            android:onClick="addTripOnClick"
             android:textColor="@android:color/white"></Button>
 
     </RelativeLayout>
@@ -55,35 +57,41 @@
                 android:orientation="vertical">
 
                 <EditText
+                    android:id="@+id/tripNameEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
                     android:hint="Trip Name"></EditText>
 
                 <EditText
+                    android:id="@+id/destinationEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
                     android:hint="Destination"></EditText>
 
                 <RadioGroup
+                    android:id="@+id/tripTypeRadioGroup"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp">
 
                     <RadioButton
+                        android:id="@+id/radioButtonCityBreak"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:buttonTint="#0091EA"
                         android:text="City Break"></RadioButton>
 
                     <RadioButton
+                        android:id="@+id/radioButtonSeaSide"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:buttonTint="#0091EA"
                         android:text="Sea Side"></RadioButton>
 
                     <RadioButton
+                        android:id="@+id/radioButtonMountain"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:buttonTint="#0091EA"
@@ -98,11 +106,13 @@
                     android:orientation="horizontal">
 
                     <TextView
+                        android:id="@+id/priceEUR"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Price (EUR): "></TextView>
 
                     <TextView
+                        android:id="@+id/showPriceEUR"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textStyle="bold"></TextView>
@@ -116,6 +126,7 @@
                     android:orientation="horizontal">
 
                     <SeekBar
+                        android:id="@+id/priceSeekBar"
                         style="@style/MySeekBar"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -131,6 +142,7 @@
                     android:orientation="horizontal">
 
                     <Button
+                        android:id="@+id/startDateButton"
                         android:layout_width="0dp"
                         android:layout_height="32dp"
                         android:layout_margin="8dp"
@@ -140,6 +152,7 @@
                         android:textColor="@android:color/white"></Button>
 
                     <Button
+                        android:id="@+id/endDateButton"
                         android:layout_width="0dp"
                         android:layout_height="32dp"
                         android:layout_margin="8dp"
@@ -180,6 +193,7 @@
                     android:orientation="horizontal">
 
                     <RatingBar
+                        android:id="@+id/ratingBarTrip"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -192,15 +206,15 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="160dp"
                 android:gravity="center"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="8dp"
                 android:orientation="horizontal">
 
                 <ImageView
                     android:id="@+id/uploadedPhotoImageView"
                     android:layout_width="match_parent"
-                    android:layout_height="120dp"
+                    android:layout_height="match_parent"
                     android:src="@drawable/ic_baseline_photo_24"></ImageView>
 
             </LinearLayout>

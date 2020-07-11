@@ -20,10 +20,10 @@
         <activity android:name=".UI.AboutUsActivity" />
         <activity android:name=".RecyclerViews.RecyclerViewActivity" />
         <activity
-            android:name=".MainScreen"
+            android:name=".Activities.MainScreen"
             android:label="@string/title_activity_main_screen"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".SplashScreen">
+        <activity android:name=".Activities.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -31,7 +31,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LogInActivity"
+            android:name=".Activities.LogInActivity"
             android:theme="@style/AppTheme" />
 
         <provider

@@ -39,4 +39,7 @@ Sed nunc quam, pellentesque a erat eget, ornare dapibus dolor. Duis vel vestibul
 
 Aliquam sed ex euismod, interdum nulla quis, ultricies quam. Curabitur ut lectus magna. Donec at dolor imperdiet libero hendrerit pellentesque euismod in ipsum. Mauris non ante purus. Maecenas fermentum nisl id sapien consequat, sed malesuada tellus feugiat. Nullam porta tristique metus. Suspendisse augue arcu, lacinia non est a, tempus efficitur arcu.</string>
     <string name="photo_uploaded">Photo Uploaded</string>
+    <string name="destination">Destination</string>
+    <string name="tripName">Trip name</string>
+    <string name="tripType">Trip type</string>
 </resources>
