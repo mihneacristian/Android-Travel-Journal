@@ -15,24 +15,27 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.storage.FirebaseStorage;
+import com.mihneacristian.traveljournal.Activities.NewTripActivity;
+import com.mihneacristian.traveljournal.Fragments.FavoritesFragment;
+import com.mihneacristian.traveljournal.Fragments.TripsFragment;
 
-import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.core.view.GravityCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.navigation.ui.NavigationUI;
 
 public class MainScreen extends AppCompatActivity {
 
-    private AppBarConfiguration mAppBarConfiguration;
     ImageView signOutImageView;
 
     FirebaseAuth mAuth;
     FirebaseUser currentUser;
+    AppBarConfiguration mAppBarConfiguration;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,8 +52,8 @@ public class MainScreen extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent = new Intent(getApplicationContext(), NewTripActivity.class);
+                startActivity(intent);
             }
         });
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -120,6 +123,5 @@ public class MainScreen extends AppCompatActivity {
         userNameTextView.setText(currentUser.getDisplayName());
         userEmailAddressTextView.setText(currentUser.getEmail());
         Glide.with(this).load(currentUser.getPhotoUrl()).into(userProfilePicture);
-
     }
 }

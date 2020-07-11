@@ -7,25 +7,26 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.mihneacristian.traveljournal.Fragments.AboutUsssFragment"
+        android:name="com.mihneacristian.traveljournal.Fragments.TripsFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_about_us" />
+        tools:layout="@layout/fragment_trips" />
 
     <fragment
         android:id="@+id/nav_favorites"
-        android:name="com.mihneacristian.traveljournal.Fragments.AboutUsssFragment"
+        android:name="com.mihneacristian.traveljournal.Fragments.FavoritesFragment"
         android:label="@string/menu_favorites"
-        tools:layout="@layout/fragment_about_us" />
+        tools:layout="@layout/fragment_favorites" />
 
     <fragment
         android:id="@+id/nav_about_us"
-        android:name="com.mihneacristian.traveljournal.ui.gallery.GalleryFragment"
+        android:name="com.mihneacristian.traveljournal.UI.AboutUsFragment"
         android:label="@string/menu_about_us"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/activity_about_us" />
 
-    <fragment
-        android:id="@+id/nav_contact"
-        android:name="com.mihneacristian.traveljournal.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_contact"
-        tools:layout="@layout/fragment_slideshow" />
+    <activity
+        android:id="@+id/nav_add_new_trip"
+        android:name="com.mihneacristian.traveljournal.Activities.NewTripActivity"
+        tools:layout="@layout/activity_new_trip" />
+
+
 </navigation>
