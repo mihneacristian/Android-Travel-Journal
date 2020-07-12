@@ -331,7 +331,9 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputName" value="ic_baseline_insert_photo_24" />
+                            <entry key="assetSourceType" value="FILE" />
+                            <entry key="outputName" value="ic_beach" />
+                            <entry key="sourceFile" value="$PROJECT_DIR$/../../beach.svg" />
                           </map>
                         </option>
                       </PersistentState>

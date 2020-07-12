@@ -20,14 +20,14 @@
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="192dp"
-        android:layout_height="192dp"
-        android:src="@drawable/travel"
+        android:layout_width="136dp"
+        android:layout_height="136dp"
+        android:src="@drawable/ic_beach"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.35"></ImageView>
+        app:layout_constraintVertical_bias="0.45"></ImageView>
 
     <TextView
         android:id="@+id/textView"

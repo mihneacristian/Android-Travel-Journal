@@ -20,9 +20,9 @@ tools:context=".Activities.SplashScreen">
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="192dp"
-        android:layout_height="192dp"
-        android:src="@drawable/travel"
+        android:layout_width="208dp"
+        android:layout_height="208dp"
+        android:src="@drawable/ic_beach"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
