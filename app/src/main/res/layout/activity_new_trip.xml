@@ -31,8 +31,8 @@
             android:layout_centerVertical="true"
             android:layout_margin="16dp"
             android:background="@android:color/transparent"
-            android:text="Add trip"
             android:onClick="addTripOnClick"
+            android:text="Add trip"
             android:textColor="@android:color/white"></Button>
 
     </RelativeLayout>
@@ -148,6 +148,7 @@
                         android:layout_margin="8dp"
                         android:layout_weight="1"
                         android:background="#0091EA"
+                        android:onClick="onClickPickStartDate"
                         android:text="Start date"
                         android:textColor="@android:color/white"></Button>
 
@@ -158,6 +159,7 @@
                         android:layout_margin="8dp"
                         android:layout_weight="1"
                         android:background="#0091EA"
+                        android:onClick="onClickPickEndDate"
                         android:text="End date"
                         android:textColor="@android:color/white"></Button>
 
@@ -204,20 +206,20 @@
 
                 </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="160dp"
-                android:gravity="center"
-                android:layout_marginTop="8dp"
-                android:orientation="vertical">
-
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/uploadedPhotoImageView"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="120dp"
-                    android:src="@drawable/ic_baseline_photo_24"></de.hdodenhof.circleimageview.CircleImageView>
+                    android:layout_height="160dp"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
-            </LinearLayout>
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/uploadedPhotoImageView"
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:src="@drawable/ic_baseline_photo_24"></de.hdodenhof.circleimageview.CircleImageView>
+
+                </LinearLayout>
 
             </LinearLayout>
 
