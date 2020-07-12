@@ -22,7 +22,7 @@ public class TripViewHolder extends RecyclerView.ViewHolder {
 
     public TripViewHolder(@NonNull View itemView) {
         super(itemView);
-        
+
         myTripNameTextView = (TextView) itemView.findViewById(R.id.myTripNameTextView);
         destinationTextView = (TextView) itemView.findViewById(R.id.destinationTextView);
         tripTypeTextView = (TextView) itemView.findViewById(R.id.tripTypeTextView);
