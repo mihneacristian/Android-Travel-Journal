@@ -255,12 +255,16 @@ public class NewTripActivity extends AppCompatActivity {
 
         int priceOfTrip = priceSeekBar.getProgress();
         float tripRating = ratingBarTrip.getRating();
+
+        String startDate = startDateTextView.getText().toString().trim();
+        String endDate = endDateTextView.getText().toString().trim();
+
         String url = photoURL;
 
         if (!TextUtils.isEmpty(tripName)) {
             String id = databaseTripReference.push().getKey();
 
-            Trip trip = new Trip(id, tripName, destination, radioButtonToStringTripType, priceOfTrip, tripRating, url);
+            Trip trip = new Trip(id, tripName, destination, radioButtonToStringTripType, priceOfTrip, tripRating, startDate, endDate, url);
 
             databaseTripReference.child(id).setValue(trip);
 

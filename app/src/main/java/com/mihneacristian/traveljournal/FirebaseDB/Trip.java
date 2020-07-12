@@ -1,5 +1,7 @@
 package com.mihneacristian.traveljournal.FirebaseDB;
 
+import java.util.Date;
+
 public class Trip {
 
     String tripId;
@@ -8,18 +10,22 @@ public class Trip {
     String tripType;
     int tripPrice;
     float tripRating;
+    String startDate;
+    String endDate;
     String photoURL;
 
     public Trip() {
     }
 
-    public Trip(String tripId, String tripName, String tripDestination, String tripType, int tripPrice, float tripRating, String photoURL) {
+    public Trip(String tripId, String tripName, String tripDestination, String tripType, int tripPrice, float tripRating, String startDate, String endDate, String photoURL) {
         this.tripId = tripId;
         this.tripName = tripName;
         this.tripDestination = tripDestination;
         this.tripType = tripType;
         this.tripPrice = tripPrice;
         this.tripRating = tripRating;
+        this.startDate = startDate;
+        this.endDate = endDate;
         this.photoURL = photoURL;
     }
 
@@ -79,6 +85,21 @@ public class Trip {
         this.photoURL = photoURL;
     }
 
+    public String getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
+    }
+
+    public String getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(String endDate) {
+        this.endDate = endDate;
+    }
 
     @Override
     public String toString() {
@@ -86,9 +107,11 @@ public class Trip {
                 "tripId='" + tripId + '\'' +
                 ", tripName='" + tripName + '\'' +
                 ", tripDestination='" + tripDestination + '\'' +
-                ", tripType=" + tripType +
+                ", tripType='" + tripType + '\'' +
                 ", tripPrice=" + tripPrice +
                 ", tripRating=" + tripRating +
+                ", startDate=" + startDate +
+                ", endDate=" + endDate +
                 ", photoURL='" + photoURL + '\'' +
                 '}';
     }
