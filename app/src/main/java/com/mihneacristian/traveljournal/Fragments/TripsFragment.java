@@ -67,6 +67,8 @@ public class TripsFragment extends Fragment {
                 holder.myTripNameTextView.setText(model.getTripName());
                 holder.destinationTextView.setText(model.getTripDestination());
                 holder.tripTypeTextView.setText(model.getTripType());
+                holder.tripPriceTextView.setText(String.valueOf(model.getTripPrice()) + " €");
+                holder.tripRatingTextView.setText((String.valueOf(model.getTripRating())) + "★");
                 Glide.with(getActivity()).load(model.getPhotoURL()).into(holder.tripImage);
             }
 

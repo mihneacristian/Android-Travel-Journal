@@ -321,7 +321,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/Users/mihneacristianpopa/Library/Application%20Support/JetBrains/Toolbox/apps/AndroidStudio/ch-0/193.6514223/Android%20Studio.app/Contents/plugins/android/lib/android.jar!/images/material/icons/materialicons/favorite/baseline_favorite_24.xml" />
+                                      <entry key="url" value="jar:file:/Users/mihneacristianpopa/Library/Application%20Support/JetBrains/Toolbox/apps/AndroidStudio/ch-0/193.6514223/Android%20Studio.app/Contents/plugins/android/lib/android.jar!/images/material/icons/materialicons/insert_photo/baseline_insert_photo_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -331,7 +331,7 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputName" value="ic_baseline_favorite_24" />
+                            <entry key="outputName" value="ic_baseline_insert_photo_24" />
                           </map>
                         </option>
                       </PersistentState>

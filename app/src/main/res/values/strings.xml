@@ -42,4 +42,6 @@ Aliquam sed ex euismod, interdum nulla quis, ultricies quam. Curabitur ut lectus
     <string name="destination">Destination</string>
     <string name="tripName">Trip name</string>
     <string name="tripType">Trip type</string>
+    <string name="tripPrice">Trip price</string>
+    <string name="tripRating">Trip rating</string>
 </resources>
