@@ -1,9 +1,6 @@
 package com.mihneacristian.traveljournal.ViewHolder;
 
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -25,14 +22,12 @@ public class TripViewHolder extends RecyclerView.ViewHolder {
 
     public TripViewHolder(@NonNull View itemView) {
         super(itemView);
-
-
+        
         myTripNameTextView = (TextView) itemView.findViewById(R.id.myTripNameTextView);
         destinationTextView = (TextView) itemView.findViewById(R.id.destinationTextView);
         tripTypeTextView = (TextView) itemView.findViewById(R.id.tripTypeTextView);
         tripPriceTextView = (TextView) itemView.findViewById(R.id.tripPriceTextView);
         tripRatingTextView = (TextView) itemView.findViewById(R.id.tripRatingTextView);
-
         tripImage = (CircleImageView) itemView.findViewById(R.id.tripImage);
     }
 

@@ -1,7 +1,5 @@
 package com.mihneacristian.traveljournal.FirebaseDB;
 
-import java.util.Date;
-
 public class Trip {
 
     String tripId;
