@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_activated="true">
+        <bitmap android:src="@drawable/ic_baseline_favorite_24"></bitmap>
+    </item>
+    <item>
+        <bitmap android:src="@drawable/ic_baseline_favorite_border_24_blue"></bitmap>
+    </item>
+</selector>

@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/constraintParent"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp"
-    tools:context=".Fragments.TripsFragment">
+    android:layout_height="wrap_content"
+    android:padding="16dp">
 
 
     <androidx.cardview.widget.CardView
@@ -26,30 +25,43 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/addToFavoritesImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:onClick="onClickUpdateImage"
+                android:src="@drawable/ic_baseline_favorite_border_24_blue"
+                app:layout_constraintBottom_toTopOf="@+id/myTripNameTextView"
+                app:layout_constraintEnd_toStartOf="@+id/tripImage"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"></androidx.appcompat.widget.AppCompatImageView>
+
             <TextView
-                android:id="@+id/myTripTextView"
+                android:id="@+id/myTripNameTextView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
                 android:text="@string/tripName"
                 android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                android:textSize="24sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/tripImage"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.32" />
+                app:layout_constraintVertical_bias="0.38" />
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/tripImage"
                 android:layout_width="152dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="right"
-                android:background="@drawable/icon"
-                android:scaleType="fitCenter"
+                android:padding="16dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/myTripTextView"
-                app:layout_constraintTop_toTopOf="parent"></ImageView>
+                app:layout_constraintStart_toEndOf="@+id/myTripNameTextView"
+                app:layout_constraintTop_toTopOf="parent"></de.hdodenhof.circleimageview.CircleImageView>
 
             <TextView
                 android:id="@+id/destinationTextView"
@@ -61,8 +73,8 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/tripImage"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/myTripTextView"
-                app:layout_constraintVertical_bias="0.18"></TextView>
+                app:layout_constraintTop_toBottomOf="@+id/myTripNameTextView"
+                app:layout_constraintVertical_bias="0.05"></TextView>
 
             <TextView
                 android:id="@+id/tripTypeTextView"
@@ -75,7 +87,7 @@
                 app:layout_constraintEnd_toStartOf="@+id/tripImage"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/destinationTextView"
-                app:layout_constraintVertical_bias="0.18"></TextView>
+                app:layout_constraintVertical_bias="0.05"></TextView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
