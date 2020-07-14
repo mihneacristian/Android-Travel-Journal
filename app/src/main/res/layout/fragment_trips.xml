@@ -25,18 +25,6 @@
             android:layout_height="match_parent"
             android:padding="16dp">
 
-            <ImageView
-                android:id="@+id/addToFavoritesImageView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:src="@drawable/ic_baseline_favorite_border_24_blue"
-                app:layout_constraintBottom_toTopOf="@+id/myTripNameTextView"
-                app:layout_constraintEnd_toStartOf="@+id/tripImage"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"></ImageView>
-
             <TextView
                 android:id="@+id/myTripNameTextView"
                 android:layout_width="0dp"
@@ -45,11 +33,12 @@
                 android:text="@string/tripName"
                 android:textAppearance="@style/TextAppearance.AppCompat.Title"
                 android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/destinationTextView"
                 app:layout_constraintEnd_toStartOf="@+id/tripImage"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.3" />
+                app:layout_constraintVertical_bias="0.22000003" />
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/tripImage"
@@ -59,6 +48,7 @@
                 android:src="@color/fui_buttonShadow"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/myTripNameTextView"
                 app:layout_constraintTop_toTopOf="parent"></de.hdodenhof.circleimageview.CircleImageView>
 
@@ -69,8 +59,9 @@
                 android:layout_marginLeft="8dp"
                 android:text="@string/destination"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/tripTypeTextView"
                 app:layout_constraintEnd_toStartOf="@+id/tripImage"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/myTripNameTextView"
                 app:layout_constraintVertical_bias="0.05"></TextView>
@@ -82,13 +73,15 @@
                 android:layout_marginLeft="8dp"
                 android:text="@string/tripType"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/linearLayout"
                 app:layout_constraintEnd_toStartOf="@+id/tripImage"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/destinationTextView"
                 app:layout_constraintVertical_bias="0.05"></TextView>
 
             <LinearLayout
+                android:id="@+id/linearLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"

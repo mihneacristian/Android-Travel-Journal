@@ -1,5 +1,6 @@
 package com.mihneacristian.traveljournal.Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +17,7 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.mihneacristian.traveljournal.Activities.ViewTripActivity;
 import com.mihneacristian.traveljournal.FirebaseDB.Trip;
 import com.mihneacristian.traveljournal.R;
 import com.mihneacristian.traveljournal.ViewHolder.TripViewHolder;
@@ -32,7 +34,6 @@ public class TripsFragment extends Fragment {
     FirebaseRecyclerAdapter<Trip, TripViewHolder> adapter;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
-
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.activity_recycler_view, container, false);
@@ -63,18 +64,36 @@ public class TripsFragment extends Fragment {
 
         adapter = new FirebaseRecyclerAdapter<Trip, TripViewHolder>(firebaseRecyclerOptions) {
             @Override
-            protected void onBindViewHolder(@NonNull TripViewHolder holder, int position, @NonNull Trip model) {
+            protected void onBindViewHolder(@NonNull final TripViewHolder holder, int position, @NonNull final Trip model) {
                 holder.myTripNameTextView.setText(model.getTripName());
                 holder.destinationTextView.setText(model.getTripDestination());
                 holder.tripTypeTextView.setText(model.getTripType());
                 holder.tripPriceTextView.setText(String.valueOf(model.getTripPrice()) + " €");
                 holder.tripRatingTextView.setText((String.valueOf(model.getTripRating())) + "★");
                 Glide.with(getActivity()).load(model.getPhotoURL()).into(holder.tripImage);
+
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getContext(), ViewTripActivity.class);
+
+                        intent.putExtra("tripName", model.getTripName());
+                        intent.putExtra("tripDestination", model.getTripDestination());
+                        intent.putExtra("tripType", model.getTripType());
+                        intent.putExtra("tripPrice", model.getTripPrice());
+                        intent.putExtra("startDate", model.getStartDate());
+                        intent.putExtra("endDate", model.getEndDate());
+                        intent.putExtra("rating", model.getTripRating());
+                        intent.putExtra("photo", model.getPhotoURL());
+
+                        startActivity(intent);
+                    }
+                });
             }
 
             @NonNull
             @Override
-            public TripViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            public TripViewHolder onCreateViewHolder(@NonNull final ViewGroup parent, int viewType) {
                 View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_trips, parent, false);
                 return new TripViewHolder(view);
             }
