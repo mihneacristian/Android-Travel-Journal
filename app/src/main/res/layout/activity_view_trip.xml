@@ -78,11 +78,27 @@
                         android:layout_height="24dp"
                         android:layout_gravity="center_vertical"
                         android:layout_weight="1"
-                        android:contentDescription="@string/app_name"
                         android:src="@drawable/ic_temperature"></ImageView>
 
                     <TextView
                         android:id="@+id/locationTemperature"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="2"
+                        android:padding="8dp"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp"></TextView>
+
+                    <ImageView
+                        android:id="@+id/descriptionImageView"
+                        android:layout_width="0dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"></ImageView>
+
+                    <TextView
+                        android:id="@+id/weatherDescription"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"

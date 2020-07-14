@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -16,15 +15,11 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
-import com.google.gson.JsonObject;
 import com.mihneacristian.traveljournal.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 
 public class ViewTripActivity extends AppCompatActivity {
 
@@ -47,6 +42,8 @@ public class ViewTripActivity extends AppCompatActivity {
     private RatingBar tripRatingViewTrip;
 
     private TextView locationTemperature;
+    private TextView weatherDescription;
+    private ImageView descriptionImageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +60,8 @@ public class ViewTripActivity extends AppCompatActivity {
         tripRatingViewTrip = findViewById(R.id.tripRatingViewTrip);
 
         locationTemperature = findViewById(R.id.locationTemperature);
+        weatherDescription = findViewById(R.id.weatherDescription);
+        descriptionImageView = findViewById(R.id.descriptionImageView);
 
         destinationNameString = getIntent().getExtras().get("tripDestination").toString();
         toolbarTitleString = getIntent().getExtras().get("tripName").toString();
@@ -94,13 +93,31 @@ public class ViewTripActivity extends AppCompatActivity {
                     JSONObject jsonObject = response.getJSONObject("main");
                     JSONArray jsonArray = response.getJSONArray("weather");
                     JSONObject object = jsonArray.getJSONObject(0);
-
                     double temperatureDouble = jsonObject.getDouble("temp");
+                    String description = object.getString("main");
+
+
+
                     double temperature = (int) Math.round(temperatureDouble);
                     int temperatureInt = (int) temperature;
                     String temp = String.valueOf(temperatureInt + "°C");
 
                     locationTemperature.setText(temp);
+
+                    if (description.contains("Cloud"))
+                    {
+                        descriptionImageView.setImageResource(R.drawable.ic_cloud);
+                        weatherDescription.setText(description);
+                    } else if (description.contains("Clear")) {
+                        descriptionImageView.setImageResource(R.drawable.ic_sun);
+                        weatherDescription.setText(description);
+                    } else if (description.contains("Rain")) {
+                        descriptionImageView.setImageResource(R.drawable.ic_rain);
+                        weatherDescription.setText(description);
+                    } else if (description.contains("Snow")) {
+                        descriptionImageView.setImageResource(R.drawable.ic_snow);
+                        weatherDescription.setText(description);
+                    }
 
                 } catch (JSONException e) {
                     e.printStackTrace();
