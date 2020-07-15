@@ -28,6 +28,5 @@ public class TripViewHolder extends RecyclerView.ViewHolder {
         tripPriceTextView = (TextView) itemView.findViewById(R.id.tripPriceTextView);
         tripRatingTextView = (TextView) itemView.findViewById(R.id.tripRatingTextView);
         tripImage = (CircleImageView) itemView.findViewById(R.id.tripImage);
-
     }
 }

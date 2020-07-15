@@ -19,7 +19,6 @@
         android:theme="@style/AppTheme">
         <activity android:name=".Activities.ViewTripActivity"></activity>
         <activity android:name=".Activities.NewTripActivity" />
-        <activity android:name=".RecyclerViews.RecyclerViewActivity" />
         <activity
             android:name=".Activities.MainScreen"
             android:label="@string/title_activity_main_screen"

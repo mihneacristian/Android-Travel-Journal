@@ -77,6 +77,7 @@ public class TripsFragment extends Fragment {
                     public void onClick(View v) {
                         Intent intent = new Intent(getContext(), ViewTripActivity.class);
 
+                        intent.putExtra("tripId", model.getTripId());
                         intent.putExtra("tripName", model.getTripName());
                         intent.putExtra("tripDestination", model.getTripDestination());
                         intent.putExtra("tripType", model.getTripType());

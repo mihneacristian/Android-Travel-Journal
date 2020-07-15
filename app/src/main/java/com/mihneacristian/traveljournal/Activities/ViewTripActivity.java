@@ -3,10 +3,13 @@ package com.mihneacristian.traveljournal.Activities;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -15,6 +18,11 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.StorageReference;
 import com.mihneacristian.traveljournal.R;
 
 import org.json.JSONArray;
@@ -23,6 +31,7 @@ import org.json.JSONObject;
 
 public class ViewTripActivity extends AppCompatActivity {
 
+    private String tripId;
     private String destinationNameString;
     private String tripTypeString;
     private String toolbarTitleString;
@@ -45,6 +54,9 @@ public class ViewTripActivity extends AppCompatActivity {
     private TextView weatherDescription;
     private ImageView descriptionImageView;
 
+    private StorageReference storageReference;
+    private DatabaseReference databaseTripReference;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,7 +75,8 @@ public class ViewTripActivity extends AppCompatActivity {
         weatherDescription = findViewById(R.id.weatherDescription);
         descriptionImageView = findViewById(R.id.descriptionImageView);
 
-        destinationNameString = getIntent().getExtras().get("tripDestination").toString();
+        tripId = getIntent().getExtras().get("tripId").toString();
+        destinationNameString = getIntent().getExtras().get("tripDestination").toString().toUpperCase();
         toolbarTitleString = getIntent().getExtras().get("tripName").toString();
         tripTypeString = getIntent().getExtras().get("tripType").toString();
         tripPriceString = getIntent().getExtras().get("tripPrice").toString();
@@ -79,9 +92,34 @@ public class ViewTripActivity extends AppCompatActivity {
         viewTripActualStartDateTextView.setText(tripStartDateString);
         viewTripActualEndDateTextView.setText(tripEndDateString.toString().trim());
         tripRatingViewTrip.setRating(ratingTrip);
+
         Glide.with(getApplicationContext()).load(tripImageString).into(tripImageView);
 
         showTemperature();
+
+        FloatingActionButton fabAddToFavorites = findViewById(R.id.fabAddToFavorites);
+        fabAddToFavorites.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "TO IMPLEMENT", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        FloatingActionButton fabDeleteTrip = findViewById(R.id.fabDeleteTrip);
+        fabDeleteTrip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                deleteTrip(tripId);
+                Intent intent = new Intent(getApplicationContext(), MainScreen.class);
+                startActivityForResult(intent, 1);
+            }
+        });
+    }
+
+    public void deleteTrip(String tripId) {
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("trips").child(tripId);
+        databaseReference.removeValue();
+        Toast.makeText(getApplicationContext(), "Trip deleted", Toast.LENGTH_LONG).show();
     }
 
     public void showTemperature() {
@@ -97,15 +135,13 @@ public class ViewTripActivity extends AppCompatActivity {
                     String description = object.getString("main");
 
 
-
                     double temperature = (int) Math.round(temperatureDouble);
                     int temperatureInt = (int) temperature;
                     String temp = String.valueOf(temperatureInt + "°C");
 
                     locationTemperature.setText(temp);
 
-                    if (description.contains("Cloud"))
-                    {
+                    if (description.contains("Cloud")) {
                         descriptionImageView.setImageResource(R.drawable.ic_cloud);
                         weatherDescription.setText(description);
                     } else if (description.contains("Clear")) {
