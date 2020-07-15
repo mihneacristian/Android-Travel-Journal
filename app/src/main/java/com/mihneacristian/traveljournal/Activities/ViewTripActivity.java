@@ -57,6 +57,8 @@ public class ViewTripActivity extends AppCompatActivity {
     private StorageReference storageReference;
     private DatabaseReference databaseTripReference;
 
+    private static final String API_KEY = "e89024468ba6624bb1ca47053e1aa3e2";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -123,7 +125,7 @@ public class ViewTripActivity extends AppCompatActivity {
     }
 
     public void showTemperature() {
-        String url = "https://api.openweathermap.org/data/2.5/weather?q=" + destinationNameString + "&appid=e89024468ba6624bb1ca47053e1aa3e2&units=Metric";
+        String url = "https://api.openweathermap.org/data/2.5/weather?q=" + destinationNameString + "&appid=" + API_KEY + "&units=Metric";
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
