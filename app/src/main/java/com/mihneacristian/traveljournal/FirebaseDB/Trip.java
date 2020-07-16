@@ -11,11 +11,12 @@ public class Trip {
     String startDate;
     String endDate;
     String photoURL;
+    boolean isFavorite;
 
     public Trip() {
     }
 
-    public Trip(String tripId, String tripName, String tripDestination, String tripType, int tripPrice, float tripRating, String startDate, String endDate, String photoURL) {
+    public Trip(String tripId, String tripName, String tripDestination, String tripType, int tripPrice, float tripRating, String startDate, String endDate, String photoURL, boolean isFavorite) {
         this.tripId = tripId;
         this.tripName = tripName;
         this.tripDestination = tripDestination;
@@ -25,6 +26,7 @@ public class Trip {
         this.startDate = startDate;
         this.endDate = endDate;
         this.photoURL = photoURL;
+        this.isFavorite = isFavorite;
     }
 
     public String getTripId() {
@@ -99,6 +101,14 @@ public class Trip {
         this.endDate = endDate;
     }
 
+    public boolean isFavorite() {
+        return isFavorite;
+    }
+
+    public void setFavorite(boolean favorite) {
+        isFavorite = favorite;
+    }
+
     @Override
     public String toString() {
         return "Trip{" +
@@ -108,9 +118,10 @@ public class Trip {
                 ", tripType='" + tripType + '\'' +
                 ", tripPrice=" + tripPrice +
                 ", tripRating=" + tripRating +
-                ", startDate=" + startDate +
-                ", endDate=" + endDate +
+                ", startDate='" + startDate + '\'' +
+                ", endDate='" + endDate + '\'' +
                 ", photoURL='" + photoURL + '\'' +
+                ", isFavorite=" + isFavorite +
                 '}';
     }
 }

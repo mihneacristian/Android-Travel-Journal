@@ -261,10 +261,12 @@ public class NewTripActivity extends AppCompatActivity {
 
         String url = photoURL;
 
+        Boolean isFavorite = false;
+
         if (!TextUtils.isEmpty(tripName)) {
             String id = databaseTripReference.push().getKey();
 
-            Trip trip = new Trip(id, tripName, destination, radioButtonToStringTripType, priceOfTrip, tripRating, startDate, endDate, url);
+            Trip trip = new Trip(id, tripName, destination, radioButtonToStringTripType, priceOfTrip, tripRating, startDate, endDate, url, isFavorite);
 
             databaseTripReference.child(id).setValue(trip);
 

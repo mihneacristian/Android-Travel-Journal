@@ -1,28 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintParent"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Fragments.FavoritesFragment">
+    android:layout_height="wrap_content"
+    android:padding="16dp">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardViewItem"
+        android:id="@+id/cardView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_height="160dp"
+        app:cardBackgroundColor="@android:color/white"
         app:cardCornerRadius="8dp"
-        android:backgroundTint="@color/colorPrimaryDark">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.10">
 
-        <TextView
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/hello_blank_fragment"
-            android:textColor="@android:color/white"/>
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/favoriteTripNameTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:text="@string/tripName"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@+id/favoriteDestinationTextView"
+                app:layout_constraintEnd_toStartOf="@+id/favoriteTripImage"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.2" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/favoriteTripImage"
+                android:layout_width="152dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="right"
+                android:src="@color/fui_buttonShadow"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/favoriteTripNameTextView"
+                app:layout_constraintTop_toTopOf="parent"></de.hdodenhof.circleimageview.CircleImageView>
+
+            <TextView
+                android:id="@+id/favoriteDestinationTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:text="@string/destination"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                app:layout_constraintBottom_toTopOf="@+id/favoriteTripTypeTextView"
+                app:layout_constraintEnd_toStartOf="@+id/favoriteTripImage"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/favoriteTripNameTextView"
+                app:layout_constraintVertical_bias="0.05"></TextView>
+
+            <TextView
+                android:id="@+id/favoriteTripTypeTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:text="@string/tripType"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+                app:layout_constraintEnd_toStartOf="@+id/favoriteTripImage"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/favoriteDestinationTextView"
+                app:layout_constraintVertical_bias="0.05"></TextView>
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/favoriteTripImage"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/favoriteTripTypeTextView"
+                app:layout_constraintTop_toBottomOf="@+id/favoriteTripTypeTextView"
+                app:layout_constraintVertical_bias="0.0">
+
+                <TextView
+                    android:id="@+id/favoriteTripPriceTextView"
+                    android:layout_width="64dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tripPrice"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/favoriteTripImage"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/favoriteTripTypeTextView"
+                    app:layout_constraintVertical_bias="0.05"></TextView>
+
+                <TextView
+                    android:id="@+id/favoriteTripRatingTextView"
+                    android:layout_width="96dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tripRating"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/favoriteTripImage"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/favoriteTripTypeTextView"
+                    app:layout_constraintVertical_bias="0.05"></TextView>
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
 
-
-
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -23,6 +23,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.StorageReference;
+import com.mihneacristian.traveljournal.FirebaseDB.Trip;
 import com.mihneacristian.traveljournal.R;
 
 import org.json.JSONArray;
@@ -40,6 +41,8 @@ public class ViewTripActivity extends AppCompatActivity {
     private String tripEndDateString;
     private String tripImageString;
     private float ratingTrip;
+    private boolean isFavorite = true;
+    private int priceInteger;
 
     private Toolbar toolbarTitle;
     private TextView destinationNameTextView;
@@ -78,7 +81,7 @@ public class ViewTripActivity extends AppCompatActivity {
         descriptionImageView = findViewById(R.id.descriptionImageView);
 
         tripId = getIntent().getExtras().get("tripId").toString();
-        destinationNameString = getIntent().getExtras().get("tripDestination").toString().toUpperCase();
+        destinationNameString = getIntent().getExtras().get("tripDestination").toString();
         toolbarTitleString = getIntent().getExtras().get("tripName").toString();
         tripTypeString = getIntent().getExtras().get("tripType").toString();
         tripPriceString = getIntent().getExtras().get("tripPrice").toString();
@@ -97,13 +100,15 @@ public class ViewTripActivity extends AppCompatActivity {
 
         Glide.with(getApplicationContext()).load(tripImageString).into(tripImageView);
 
+        priceInteger = Integer.parseInt(tripPriceString);
+
         showTemperature();
 
         FloatingActionButton fabAddToFavorites = findViewById(R.id.fabAddToFavorites);
         fabAddToFavorites.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "TO IMPLEMENT", Toast.LENGTH_LONG).show();
+                addToFavorites(tripId);
             }
         });
 
@@ -116,6 +121,14 @@ public class ViewTripActivity extends AppCompatActivity {
                 startActivityForResult(intent, 1);
             }
         });
+    }
+
+
+    public void addToFavorites(String tripId) {
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("trips").child(tripId);
+        Trip favTrip = new Trip(tripId, toolbarTitleString, destinationNameString, tripTypeString, priceInteger, ratingTrip, tripStartDateString, tripEndDateString, tripImageString, isFavorite);
+        databaseReference.setValue(favTrip);
+        Toast.makeText(getApplicationContext(), "Added to Favorites list", Toast.LENGTH_LONG).show();
     }
 
     public void deleteTrip(String tripId) {
