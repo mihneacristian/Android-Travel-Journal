@@ -68,19 +68,12 @@ public class NewTripActivity extends AppCompatActivity {
     private EditText destinationEditText;
 
     private RadioGroup tripTypeRadioGroup;
-    private RadioButton radioButtonCityBreak;
-    private RadioButton radioButtonSeaSide;
-    private RadioButton radioButtonMountain;
 
     private TextView showPriceEUR;
     private TextView startDateTextView;
     private TextView endDateTextView;
 
     private SeekBar priceSeekBar;
-
-    private Button startDateButton;
-    private Button endDateButton;
-    private Button addTripButton;
 
     private RatingBar ratingBarTrip;
 
@@ -99,16 +92,10 @@ public class NewTripActivity extends AppCompatActivity {
         tripNameEditText = findViewById(R.id.tripNameEditText);
         destinationEditText = findViewById(R.id.destinationEditText);
         tripTypeRadioGroup = (RadioGroup) findViewById(R.id.tripTypeRadioGroup);
-        radioButtonCityBreak = findViewById(R.id.radioButtonCityBreak);
-        radioButtonSeaSide = findViewById(R.id.radioButtonSeaSide);
-        radioButtonMountain = findViewById(R.id.radioButtonMountain);
         showPriceEUR = findViewById(R.id.showPriceEUR);
         startDateTextView = findViewById(R.id.startDateTextView);
         endDateTextView = findViewById(R.id.endDateTextView);
         priceSeekBar = (SeekBar) findViewById(R.id.priceSeekBar);
-        startDateButton = (Button) findViewById(R.id.startDateButton);
-        endDateButton = (Button) findViewById(R.id.endDateButton);
-        addTripButton = (Button) findViewById(R.id.addTripButton);
         ratingBarTrip = (RatingBar) findViewById(R.id.ratingBarTrip);
 
         storageReference = FirebaseStorage.getInstance().getReference();
@@ -261,12 +248,10 @@ public class NewTripActivity extends AppCompatActivity {
 
         String url = photoURL;
 
-        Boolean isFavorite = false;
-
         if (!TextUtils.isEmpty(tripName)) {
             String id = databaseTripReference.push().getKey();
 
-            Trip trip = new Trip(id, tripName, destination, radioButtonToStringTripType, priceOfTrip, tripRating, startDate, endDate, url, isFavorite);
+            Trip trip = new Trip(id, tripName, destination, radioButtonToStringTripType, priceOfTrip, tripRating, startDate, endDate, url, false);
 
             databaseTripReference.child(id).setValue(trip);
 

@@ -257,7 +257,7 @@
         android:layout_height="wrap_content"
         android:layout_marginRight="88dp"
         android:elevation="10dp"
-        android:src="@drawable/ic_baseline_favorite_24"
+        android:src="@drawable/ic_baseline_favorite_border_24_blue"
         app:layout_anchor="@id/appBarLayout"
         app:layout_anchorGravity="bottom|right|end"
         app:pressedTranslationZ="10dp"></com.google.android.material.floatingactionbutton.FloatingActionButton>

@@ -87,6 +87,8 @@ public class TripsFragment extends Fragment {
                         intent.putExtra("rating", model.getTripRating());
                         intent.putExtra("photo", model.getPhotoURL());
 
+                        intent.putExtra("fav", model.isFavorite());
+
                         startActivity(intent);
                     }
                 });

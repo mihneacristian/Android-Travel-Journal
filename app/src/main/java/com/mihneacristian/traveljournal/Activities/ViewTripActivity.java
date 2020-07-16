@@ -1,10 +1,12 @@
 package com.mihneacristian.traveljournal.Activities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RatingBar;
@@ -20,9 +22,11 @@ import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.storage.StorageReference;
+import com.google.firebase.database.ValueEventListener;
 import com.mihneacristian.traveljournal.FirebaseDB.Trip;
 import com.mihneacristian.traveljournal.R;
 
@@ -41,7 +45,6 @@ public class ViewTripActivity extends AppCompatActivity {
     private String tripEndDateString;
     private String tripImageString;
     private float ratingTrip;
-    private boolean isFavorite = true;
     private int priceInteger;
 
     private Toolbar toolbarTitle;
@@ -57,8 +60,10 @@ public class ViewTripActivity extends AppCompatActivity {
     private TextView weatherDescription;
     private ImageView descriptionImageView;
 
-    private StorageReference storageReference;
-    private DatabaseReference databaseTripReference;
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
+
+    Boolean fav;
 
     private static final String API_KEY = "e89024468ba6624bb1ca47053e1aa3e2";
 
@@ -102,13 +107,27 @@ public class ViewTripActivity extends AppCompatActivity {
 
         priceInteger = Integer.parseInt(tripPriceString);
 
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference("trips");
+
+        fav = getIntent().getExtras().getBoolean("fav");
+
         showTemperature();
 
-        FloatingActionButton fabAddToFavorites = findViewById(R.id.fabAddToFavorites);
+        final FloatingActionButton fabAddToFavorites = findViewById(R.id.fabAddToFavorites);
+        final DatabaseReference dbSelectedTrip = firebaseDatabase.getReference("trips").child(fav.toString());
+
+        if (dbSelectedTrip.toString().contains("true")) {
+            fabAddToFavorites.setImageResource(R.drawable.ic_baseline_favorite_24);
+        } else if (dbSelectedTrip.toString().contains("false")) {
+            fabAddToFavorites.setImageResource(R.drawable.ic_baseline_favorite_border_24_blue);
+        }
+
+
         fabAddToFavorites.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                addToFavorites(tripId);
+                onClickAddOrRemoveFromFavorites(tripId);
             }
         });
 
@@ -123,12 +142,33 @@ public class ViewTripActivity extends AppCompatActivity {
         });
     }
 
+    public void onClickAddOrRemoveFromFavorites(String tripId) {
+
+        final DatabaseReference dbSelectedTrip = firebaseDatabase.getReference("trips").child(fav.toString());
+
+        Log.d("Is trip favorite", dbSelectedTrip.toString());
+
+        if (dbSelectedTrip.toString().contains("true")) {
+            removeFromFavorites(tripId);
+        } else if (dbSelectedTrip.toString().contains("false")) {
+            addToFavorites(tripId);
+        }
+    }
 
     public void addToFavorites(String tripId) {
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("trips").child(tripId);
+        boolean isFavorite = true;
         Trip favTrip = new Trip(tripId, toolbarTitleString, destinationNameString, tripTypeString, priceInteger, ratingTrip, tripStartDateString, tripEndDateString, tripImageString, isFavorite);
         databaseReference.setValue(favTrip);
         Toast.makeText(getApplicationContext(), "Added to Favorites list", Toast.LENGTH_LONG).show();
+    }
+
+    public void removeFromFavorites(String tripId) {
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("trips").child(tripId);
+        boolean isFavorite = false;
+        Trip favTrip = new Trip(tripId, toolbarTitleString, destinationNameString, tripTypeString, priceInteger, ratingTrip, tripStartDateString, tripEndDateString, tripImageString, isFavorite);
+        databaseReference.setValue(favTrip);
+        Toast.makeText(getApplicationContext(), "Removed from Favorites list", Toast.LENGTH_LONG).show();
     }
 
     public void deleteTrip(String tripId) {

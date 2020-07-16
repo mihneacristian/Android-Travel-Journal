@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -57,9 +56,6 @@ public class FavoritesFragment extends Fragment {
 
     private void setAdapter() {
 
-        final Trip isFavoriteTrip = new Trip();
-        isFavoriteTrip.setFavorite(true);
-
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("trips");
 
@@ -95,6 +91,9 @@ public class FavoritesFragment extends Fragment {
                                 intent.putExtra("endDate", model.getEndDate());
                                 intent.putExtra("rating", model.getTripRating());
                                 intent.putExtra("photo", model.getPhotoURL());
+
+                                intent.putExtra("fav", model.isFavorite());
+
 
                                 startActivity(intent);
                             }
