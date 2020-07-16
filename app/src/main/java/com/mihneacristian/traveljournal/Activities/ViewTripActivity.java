@@ -137,8 +137,8 @@ public class ViewTripActivity extends AppCompatActivity {
                     String description = object.getString("main");
 
 
-                    double temperature = (int) Math.round(temperatureDouble);
-                    int temperatureInt = (int) temperature;
+                    double temperatureRounded = (int) Math.round(temperatureDouble);
+                    int temperatureInt = (int) temperatureRounded;
                     String temp = String.valueOf(temperatureInt + "°C");
 
                     locationTemperature.setText(temp);
