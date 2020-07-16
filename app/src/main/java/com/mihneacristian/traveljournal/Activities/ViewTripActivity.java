@@ -1,11 +1,17 @@
 package com.mihneacristian.traveljournal.Activities;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -20,19 +26,29 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
+import com.facebook.CallbackManager;
+import com.facebook.FacebookSdk;
+import com.facebook.share.model.ShareLinkContent;
+import com.facebook.share.model.SharePhoto;
+import com.facebook.share.model.SharePhotoContent;
+import com.facebook.share.widget.ShareDialog;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.mihneacristian.traveljournal.FirebaseDB.Trip;
 import com.mihneacristian.traveljournal.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 public class ViewTripActivity extends AppCompatActivity {
 
@@ -64,15 +80,24 @@ public class ViewTripActivity extends AppCompatActivity {
     DatabaseReference databaseReference;
 
     FloatingActionButton fabAddToFavorites;
+    FloatingActionButton fabShareItem;
 
     Boolean fav;
 
     private static final String API_KEY = "e89024468ba6624bb1ca47053e1aa3e2";
 
+    CallbackManager callbackManager;
+    ShareDialog shareDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        FacebookSdk.sdkInitialize(getApplicationContext());
+
         setContentView(R.layout.activity_view_trip);
+
+        int SDK_INT = android.os.Build.VERSION.SDK_INT;
 
         toolbarTitle = findViewById(R.id.tripNameToolbarText);
         destinationNameTextView = findViewById(R.id.destinationName);
@@ -105,6 +130,9 @@ public class ViewTripActivity extends AppCompatActivity {
         viewTripActualEndDateTextView.setText(tripEndDateString.toString().trim());
         tripRatingViewTrip.setRating(ratingTrip);
 
+        fabAddToFavorites = findViewById(R.id.fabAddToFavorites);
+        fabShareItem = findViewById(R.id.fabShareItem);
+
         Glide.with(getApplicationContext()).load(tripImageString).into(tripImageView);
 
         priceInteger = Integer.parseInt(tripPriceString);
@@ -116,7 +144,10 @@ public class ViewTripActivity extends AppCompatActivity {
 
         showTemperature();
 
-        fabAddToFavorites = findViewById(R.id.fabAddToFavorites);
+        printKeyHash();
+
+        final ShareDialog shareDialog = new ShareDialog(this);
+
         final DatabaseReference dbSelectedTrip = firebaseDatabase.getReference("trips").child(fav.toString());
 
         if (dbSelectedTrip.toString().contains("true")) {
@@ -142,6 +173,35 @@ public class ViewTripActivity extends AppCompatActivity {
                 startActivityForResult(intent, 1);
             }
         });
+
+        fabShareItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ShareLinkContent content = new ShareLinkContent.Builder()
+                        .setContentUrl(Uri.parse("TO ADD URL"))
+
+                        //TODO
+
+                        .build();
+
+                shareDialog.show(content);
+            }
+        });
+    }
+
+    private void printKeyHash() {
+        try {
+            PackageInfo info = getPackageManager().getPackageInfo("com.mihneacristian.traveljournal", PackageManager.GET_SIGNATURES);
+            for (Signature signature : info.signatures) {
+                MessageDigest messageDigest = MessageDigest.getInstance("SHA");
+                messageDigest.update(signature.toByteArray());
+                Log.d("KeyHash", Base64.encodeToString(messageDigest.digest(), Base64.DEFAULT));
+            }
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
     }
 
     public void onClickAddOrRemoveFromFavorites(String tripId) {

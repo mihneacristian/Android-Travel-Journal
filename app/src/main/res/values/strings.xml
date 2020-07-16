@@ -44,4 +44,6 @@ Aliquam sed ex euismod, interdum nulla quis, ultricies quam. Curabitur ut lectus
     <string name="tripType">Trip type</string>
     <string name="tripPrice">Trip price</string>
     <string name="tripRating">Trip rating</string>
+    <string name="facebook_app_id">1384115388440773</string>
+    <string name="facebook_login_protocol_scheme">fb1384115388440773</string>
 </resources>
