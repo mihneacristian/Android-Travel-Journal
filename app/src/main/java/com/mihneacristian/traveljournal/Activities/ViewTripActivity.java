@@ -63,6 +63,8 @@ public class ViewTripActivity extends AppCompatActivity {
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
 
+    FloatingActionButton fabAddToFavorites;
+
     Boolean fav;
 
     private static final String API_KEY = "e89024468ba6624bb1ca47053e1aa3e2";
@@ -114,7 +116,7 @@ public class ViewTripActivity extends AppCompatActivity {
 
         showTemperature();
 
-        final FloatingActionButton fabAddToFavorites = findViewById(R.id.fabAddToFavorites);
+        fabAddToFavorites = findViewById(R.id.fabAddToFavorites);
         final DatabaseReference dbSelectedTrip = firebaseDatabase.getReference("trips").child(fav.toString());
 
         if (dbSelectedTrip.toString().contains("true")) {
@@ -149,8 +151,10 @@ public class ViewTripActivity extends AppCompatActivity {
         Log.d("Is trip favorite", dbSelectedTrip.toString());
 
         if (dbSelectedTrip.toString().contains("true")) {
+            fabAddToFavorites.setImageResource(R.drawable.ic_baseline_favorite_border_24_blue);
             removeFromFavorites(tripId);
         } else if (dbSelectedTrip.toString().contains("false")) {
+            fabAddToFavorites.setImageResource(R.drawable.ic_baseline_favorite_24);
             addToFavorites(tripId);
         }
     }
