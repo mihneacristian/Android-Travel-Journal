@@ -153,7 +153,7 @@ public class ViewTripActivity extends AppCompatActivity {
         if (dbSelectedTrip.toString().contains("true")) {
             fabAddToFavorites.setImageResource(R.drawable.ic_baseline_favorite_border_24_blue);
             removeFromFavorites(tripId);
-        } else if (dbSelectedTrip.toString().contains("false")) {
+        } else {
             fabAddToFavorites.setImageResource(R.drawable.ic_baseline_favorite_24);
             addToFavorites(tripId);
         }
