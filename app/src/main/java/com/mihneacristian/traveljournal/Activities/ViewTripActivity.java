@@ -27,11 +27,20 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
+import com.facebook.login.LoginManager;
+import com.facebook.share.ShareApi;
+import com.facebook.share.Sharer;
+import com.facebook.share.internal.ShareContentValidation;
+import com.facebook.share.model.ShareContent;
+import com.facebook.share.model.ShareHashtag;
 import com.facebook.share.model.ShareLinkContent;
 import com.facebook.share.model.SharePhoto;
 import com.facebook.share.model.SharePhotoContent;
 import com.facebook.share.widget.ShareDialog;
+import com.google.android.gms.common.api.internal.PendingResultFacade;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import com.google.firebase.database.DatabaseReference;
@@ -49,6 +58,9 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.security.acl.Permission;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class ViewTripActivity extends AppCompatActivity {
 
@@ -96,8 +108,6 @@ public class ViewTripActivity extends AppCompatActivity {
         FacebookSdk.sdkInitialize(getApplicationContext());
 
         setContentView(R.layout.activity_view_trip);
-
-        int SDK_INT = android.os.Build.VERSION.SDK_INT;
 
         toolbarTitle = findViewById(R.id.tripNameToolbarText);
         destinationNameTextView = findViewById(R.id.destinationName);
@@ -177,14 +187,23 @@ public class ViewTripActivity extends AppCompatActivity {
         fabShareItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ShareLinkContent content = new ShareLinkContent.Builder()
-                        .setContentUrl(Uri.parse("TO ADD URL"))
 
-                        //TODO
-
+                ShareHashtag hashtag = new ShareHashtag
+                        .Builder()
+                        .setHashtag("#FacebookSDKAndroid")
                         .build();
 
-                shareDialog.show(content);
+                ShareLinkContent content = new ShareLinkContent
+                        .Builder()
+                        .setQuote("I am now in " + destinationNameString
+                                + " and it's "
+                                + locationTemperature.getText().toString()
+                                + " outside.")
+                        .setShareHashtag(hashtag)
+                        .setContentUrl(Uri.parse(tripImageString.trim()))
+                        .build();
+
+                shareDialog.show(content, ShareDialog.Mode.AUTOMATIC);
             }
         });
     }
@@ -203,6 +222,7 @@ public class ViewTripActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+
 
     public void onClickAddOrRemoveFromFavorites(String tripId) {
 
