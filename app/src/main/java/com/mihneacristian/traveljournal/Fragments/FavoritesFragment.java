@@ -18,6 +18,7 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.mihneacristian.traveljournal.Activities.EditTripActivity;
 import com.mihneacristian.traveljournal.Activities.ViewTripActivity;
 import com.mihneacristian.traveljournal.FirebaseDB.Trip;
 import com.mihneacristian.traveljournal.R;
@@ -62,47 +63,68 @@ public class FavoritesFragment extends Fragment {
         FirebaseRecyclerOptions firebaseRecyclerOptions = new FirebaseRecyclerOptions.Builder<Trip>()
                 .setQuery(databaseReference, Trip.class).build();
 
-            adapter = new FirebaseRecyclerAdapter<Trip, FavoriteViewHolder>(firebaseRecyclerOptions) {
+        adapter = new FirebaseRecyclerAdapter<Trip, FavoriteViewHolder>(firebaseRecyclerOptions) {
 
-                @Override
-                protected void onBindViewHolder(@NonNull final FavoriteViewHolder holder, int position, @NonNull final Trip model) {
+            @Override
+            protected void onBindViewHolder(@NonNull final FavoriteViewHolder holder, int position, @NonNull final Trip model) {
 
-                    if (model.isFavorite() == true) {
+                if (model.isFavorite() == true) {
 
-                        holder.favoriteTripNameTextView.setText(model.getTripName());
-                        holder.favoriteDestinationTextView.setText(model.getTripDestination());
-                        holder.favoriteTripTypeTextView.setText(model.getTripType());
-                        holder.favoriteTripPriceTextView.setText(String.valueOf(model.getTripPrice()) + " €");
-                        holder.favoriteTripRatingTextView.setText((String.valueOf(model.getTripRating())) + "★");
+                    holder.favoriteTripNameTextView.setText(model.getTripName());
+                    holder.favoriteDestinationTextView.setText(model.getTripDestination());
+                    holder.favoriteTripTypeTextView.setText(model.getTripType());
+                    holder.favoriteTripPriceTextView.setText(String.valueOf(model.getTripPrice()) + " €");
+                    holder.favoriteTripRatingTextView.setText((String.valueOf(model.getTripRating())) + "★");
 
-                        Glide.with(getActivity()).load(model.getPhotoURL()).into(holder.favoriteTripImage);
+                    Glide.with(getActivity()).load(model.getPhotoURL()).into(holder.favoriteTripImage);
 
-                        holder.itemView.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                Intent intent = new Intent(getContext(), ViewTripActivity.class);
+                    holder.itemView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(getContext(), ViewTripActivity.class);
 
-                                intent.putExtra("tripId", model.getTripId());
-                                intent.putExtra("tripName", model.getTripName());
-                                intent.putExtra("tripDestination", model.getTripDestination());
-                                intent.putExtra("tripType", model.getTripType());
-                                intent.putExtra("tripPrice", model.getTripPrice());
-                                intent.putExtra("startDate", model.getStartDate());
-                                intent.putExtra("endDate", model.getEndDate());
-                                intent.putExtra("rating", model.getTripRating());
-                                intent.putExtra("photo", model.getPhotoURL());
+                            intent.putExtra("tripId", model.getTripId());
+                            intent.putExtra("tripName", model.getTripName());
+                            intent.putExtra("tripDestination", model.getTripDestination());
+                            intent.putExtra("tripType", model.getTripType());
+                            intent.putExtra("tripPrice", model.getTripPrice());
+                            intent.putExtra("startDate", model.getStartDate());
+                            intent.putExtra("endDate", model.getEndDate());
+                            intent.putExtra("rating", model.getTripRating());
+                            intent.putExtra("photo", model.getPhotoURL());
 
-                                intent.putExtra("fav", model.isFavorite());
+                            intent.putExtra("fav", model.isFavorite());
 
 
-                                startActivity(intent);
-                            }
-                        });
-                    } else {
-                        holder.itemView.setVisibility(View.GONE);
-                        holder.itemView.setLayoutParams(new ViewGroup.LayoutParams(0,0));
-                    }
+                            startActivity(intent);
+                        }
+                    });
+                } else {
+                    holder.itemView.setVisibility(View.GONE);
+                    holder.itemView.setLayoutParams(new ViewGroup.LayoutParams(0, 0));
                 }
+
+                holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                    @Override
+                    public boolean onLongClick(View v) {
+                        Intent intent = new Intent(getContext(), EditTripActivity.class);
+
+
+                        intent.putExtra("tripId", model.getTripId());
+                        intent.putExtra("tripName", model.getTripName());
+                        intent.putExtra("tripDestination", model.getTripDestination());
+                        intent.putExtra("tripType", model.getTripType());
+                        intent.putExtra("tripPrice", model.getTripPrice());
+                        intent.putExtra("startDate", model.getStartDate());
+                        intent.putExtra("endDate", model.getEndDate());
+                        intent.putExtra("rating", model.getTripRating());
+                        intent.putExtra("photo", model.getPhotoURL());
+
+                        startActivity(intent);
+                        return true;
+                    }
+                });
+            }
 
                 @NonNull
                 @Override

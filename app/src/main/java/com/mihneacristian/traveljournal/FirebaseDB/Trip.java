@@ -29,6 +29,18 @@ public class Trip {
         this.isFavorite = isFavorite;
     }
 
+    public Trip(String tripName, String tripDestination, String tripType, int tripPrice, float tripRating, String startDate, String endDate, String photoURL, boolean isFavorite) {
+        this.tripName = tripName;
+        this.tripDestination = tripDestination;
+        this.tripType = tripType;
+        this.tripPrice = tripPrice;
+        this.tripRating = tripRating;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.photoURL = photoURL;
+        this.isFavorite = isFavorite;
+    }
+
     public String getTripId() {
         return tripId;
     }
