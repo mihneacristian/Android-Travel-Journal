@@ -17,6 +17,7 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.mihneacristian.traveljournal.Activities.EditTripActivity;
 import com.mihneacristian.traveljournal.Activities.ViewTripActivity;
 import com.mihneacristian.traveljournal.FirebaseDB.Trip;
 import com.mihneacristian.traveljournal.R;
@@ -90,6 +91,27 @@ public class TripsFragment extends Fragment {
                         intent.putExtra("fav", model.isFavorite());
 
                         startActivity(intent);
+                    }
+                });
+
+                holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                    @Override
+                    public boolean onLongClick(View v) {
+                        Intent intent = new Intent(getContext(), EditTripActivity.class);
+
+
+                        intent.putExtra("tripId", model.getTripId());
+                        intent.putExtra("tripName", model.getTripName());
+                        intent.putExtra("tripDestination", model.getTripDestination());
+                        intent.putExtra("tripType", model.getTripType());
+                        intent.putExtra("tripPrice", model.getTripPrice());
+                        intent.putExtra("startDate", model.getStartDate());
+                        intent.putExtra("endDate", model.getEndDate());
+                        intent.putExtra("rating", model.getTripRating());
+                        intent.putExtra("photo", model.getPhotoURL());
+
+                        startActivity(intent);
+                        return true;
                     }
                 });
             }

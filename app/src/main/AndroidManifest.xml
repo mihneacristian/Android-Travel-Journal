@@ -18,14 +18,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Activities.EditTripActivity"></activity>
 
-        <meta-data android:name="com.facebook.sdk.ApplicationId"
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id"
-            tools:replace="android:value"></meta-data>
+            tools:replace="android:value" />
 
-        <activity android:name=".Activities.ViewTripActivity">
-
-        </activity>
+        <activity android:name=".Activities.ViewTripActivity"></activity>
         <activity android:name=".Activities.NewTripActivity" />
         <activity
             android:name=".Activities.MainScreen"
@@ -51,10 +51,10 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
-
-        <provider android:authorities="com.facebook.app.FacebookContentProvider1384115388440773"
+        <provider
             android:name="com.facebook.FacebookContentProvider"
-            android:exported="true"/>
+            android:authorities="com.facebook.app.FacebookContentProvider1384115388440773"
+            android:exported="true" />
     </application>
 
 </manifest>

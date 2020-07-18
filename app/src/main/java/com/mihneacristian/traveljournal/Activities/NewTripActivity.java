@@ -20,7 +20,6 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.webkit.MimeTypeMap;
-import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -247,6 +246,7 @@ public class NewTripActivity extends AppCompatActivity {
         String endDate = endDateTextView.getText().toString().trim();
 
         String url = photoURL;
+
 
         if (!TextUtils.isEmpty(tripName)) {
             String id = databaseTripReference.push().getKey();

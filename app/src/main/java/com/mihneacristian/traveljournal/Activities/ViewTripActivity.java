@@ -7,8 +7,6 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Base64;
@@ -27,20 +25,10 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.facebook.CallbackManager;
-import com.facebook.FacebookCallback;
-import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
-import com.facebook.login.LoginManager;
-import com.facebook.share.ShareApi;
-import com.facebook.share.Sharer;
-import com.facebook.share.internal.ShareContentValidation;
-import com.facebook.share.model.ShareContent;
 import com.facebook.share.model.ShareHashtag;
 import com.facebook.share.model.ShareLinkContent;
-import com.facebook.share.model.SharePhoto;
-import com.facebook.share.model.SharePhotoContent;
 import com.facebook.share.widget.ShareDialog;
-import com.google.android.gms.common.api.internal.PendingResultFacade;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import com.google.firebase.database.DatabaseReference;
@@ -52,15 +40,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.security.acl.Permission;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 public class ViewTripActivity extends AppCompatActivity {
 
@@ -98,9 +79,6 @@ public class ViewTripActivity extends AppCompatActivity {
 
     private static final String API_KEY = "e89024468ba6624bb1ca47053e1aa3e2";
 
-    CallbackManager callbackManager;
-    ShareDialog shareDialog;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -137,7 +115,7 @@ public class ViewTripActivity extends AppCompatActivity {
         viewTripTypeTextView.setText(tripTypeString.toString().trim());
         viewTripPriceTextView.setText(tripPriceString.toString().trim() + " €");
         viewTripActualStartDateTextView.setText(tripStartDateString);
-        viewTripActualEndDateTextView.setText(tripEndDateString.toString().trim());
+        viewTripActualEndDateTextView.setText(tripEndDateString);
         tripRatingViewTrip.setRating(ratingTrip);
 
         fabAddToFavorites = findViewById(R.id.fabAddToFavorites);

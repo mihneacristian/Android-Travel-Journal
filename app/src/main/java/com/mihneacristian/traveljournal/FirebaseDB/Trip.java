@@ -109,6 +109,7 @@ public class Trip {
         isFavorite = favorite;
     }
 
+
     @Override
     public String toString() {
         return "Trip{" +
