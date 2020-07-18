@@ -16,9 +16,16 @@
     <string name="menu_contact">Contact us</string>
     <string name="menu_share">Share</string>
     <string name="menu_sign_out">Sign out</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="help_and_feedback">Help &amp; feedback</string>
+    <string name="photo_uploaded">Photo Uploaded</string>
+    <string name="destination">Destination</string>
+    <string name="tripName">Trip name</string>
+    <string name="tripType">Trip type</string>
+    <string name="tripPrice">Trip price</string>
+    <string name="tripRating">Trip rating</string>
+    <string name="facebook_app_id">1384115388440773</string>
+    <string name="facebook_login_protocol_scheme">fb1384115388440773</string>
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vel lectus dictum, vestibulum tellus id, dictum lorem. Nunc vel feugiat ligula. Fusce volutpat augue ligula, non rutrum eros rutrum sed. Vivamus pretium velit nisi, vitae condimentum odio aliquam id. Sed congue, eros et imperdiet sollicitudin, nulla risus porttitor ante, at pharetra enim risus vel mauris. Nunc lacinia iaculis orci ut placerat. Integer tempus at dui vel egestas. Nam vitae rutrum turpis. Nunc viverra nibh non diam convallis finibus. Mauris accumsan ante vel quam pretium mollis.
 
 Nullam nibh lacus, vulputate eu metus et, ultricies volutpat lacus. Sed a odio ac purus rutrum venenatis vitae eu ipsum. Donec at felis cursus, auctor elit nec, tincidunt metus. Phasellus faucibus risus nec nisi vulputate interdum. Mauris in mollis orci, eget sollicitudin dolor. Aliquam laoreet quis leo vitae scelerisque. Aenean a tortor libero. Fusce vehicula lacus ac erat laoreet suscipit. Pellentesque sed dignissim dolor.
@@ -38,12 +45,5 @@ Cras mollis libero nunc, ut fermentum felis dictum eget. Proin porttitor tellus 
 Sed nunc quam, pellentesque a erat eget, ornare dapibus dolor. Duis vel vestibulum odio. Mauris tempus sapien vitae lobortis pulvinar. Morbi porta felis nec ullamcorper condimentum. Integer eleifend a metus et vulputate. Vivamus ullamcorper condimentum elit, quis pretium augue mollis sit amet. Donec non felis maximus, tincidunt sapien id, semper augue. Donec eu dui vel dui convallis hendrerit et sit amet dolor.
 
 Aliquam sed ex euismod, interdum nulla quis, ultricies quam. Curabitur ut lectus magna. Donec at dolor imperdiet libero hendrerit pellentesque euismod in ipsum. Mauris non ante purus. Maecenas fermentum nisl id sapien consequat, sed malesuada tellus feugiat. Nullam porta tristique metus. Suspendisse augue arcu, lacinia non est a, tempus efficitur arcu.</string>
-    <string name="photo_uploaded">Photo Uploaded</string>
-    <string name="destination">Destination</string>
-    <string name="tripName">Trip name</string>
-    <string name="tripType">Trip type</string>
-    <string name="tripPrice">Trip price</string>
-    <string name="tripRating">Trip rating</string>
-    <string name="facebook_app_id">1384115388440773</string>
-    <string name="facebook_login_protocol_scheme">fb1384115388440773</string>
+
 </resources>
