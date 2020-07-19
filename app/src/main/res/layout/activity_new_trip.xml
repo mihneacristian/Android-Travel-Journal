@@ -11,7 +11,7 @@
         android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="64dp"
-        android:background="#0091EA">
+        android:background="@color/light_blue">
 
         <ImageView
             android:id="@+id/previousMenuImageView"
@@ -32,7 +32,7 @@
             android:layout_margin="16dp"
             android:background="@android:color/transparent"
             android:onClick="addTripOnClick"
-            android:text="Add trip"
+            android:text="@string/add_trip"
             android:textColor="@android:color/white"></Button>
 
     </RelativeLayout>
@@ -61,14 +61,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
-                    android:hint="Trip Name"></EditText>
+                    android:hint="@string/tripName"></EditText>
 
                 <EditText
                     android:id="@+id/destinationEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
-                    android:hint="Destination"></EditText>
+                    android:hint="@string/destination"></EditText>
 
                 <RadioGroup
                     android:id="@+id/tripTypeRadioGroup"
@@ -80,22 +80,22 @@
                         android:id="@+id/radioButtonCityBreak"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:buttonTint="#0091EA"
-                        android:text="City Break"></RadioButton>
+                        android:buttonTint="@color/light_blue"
+                        android:text="@string/city_break"></RadioButton>
 
                     <RadioButton
                         android:id="@+id/radioButtonSeaSide"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:buttonTint="#0091EA"
-                        android:text="Sea Side"></RadioButton>
+                        android:buttonTint="@color/light_blue"
+                        android:text="@string/sea_side"></RadioButton>
 
                     <RadioButton
                         android:id="@+id/radioButtonMountain"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:buttonTint="#0091EA"
-                        android:text="Mountains"></RadioButton>
+                        android:buttonTint="@color/light_blue"
+                        android:text="@string/mountains"></RadioButton>
 
                 </RadioGroup>
 
@@ -109,7 +109,7 @@
                         android:id="@+id/priceEUR"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Price (EUR): "></TextView>
+                        android:text="@string/price_eur"></TextView>
 
                     <TextView
                         android:id="@+id/showPriceEUR"
@@ -147,9 +147,9 @@
                         android:layout_height="32dp"
                         android:layout_margin="8dp"
                         android:layout_weight="1"
-                        android:background="#0091EA"
+                        android:background="@color/light_blue"
                         android:onClick="onClickPickStartDate"
-                        android:text="Start date"
+                        android:text="@string/start_date"
                         android:textColor="@android:color/white"></Button>
 
                     <Button
@@ -158,9 +158,9 @@
                         android:layout_height="32dp"
                         android:layout_margin="8dp"
                         android:layout_weight="1"
-                        android:background="#0091EA"
+                        android:background="@color/light_blue"
                         android:onClick="onClickPickEndDate"
-                        android:text="End date"
+                        android:text="@string/end_date"
                         android:textColor="@android:color/white"></Button>
 
                 </LinearLayout>

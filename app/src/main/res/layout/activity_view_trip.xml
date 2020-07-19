@@ -166,7 +166,7 @@
                                 android:autoSizeTextType="uniform"
                                 android:gravity="center"
                                 android:padding="8dp"
-                                android:text="Start Date:"
+                                android:text="@string/start_date_view_trip"
                                 android:textColor="@android:color/black"></TextView>
 
                             <TextView
@@ -177,7 +177,7 @@
                                 android:autoSizeTextType="uniform"
                                 android:gravity="center"
                                 android:padding="8dp"
-                                android:text="End Date:"
+                                android:text="@string/end_date_view_trip"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                                 android:textColor="@android:color/black"></TextView>
 
