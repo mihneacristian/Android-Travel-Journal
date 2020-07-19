@@ -5,6 +5,7 @@ Android Fundamentals - Travel Journal (Final Project, Week 10) - Google Atelieru
 <br />
 <p align="center">
     <img src="https://i.imgur.com/JLi23iI.jpg" width="200" height="400"/>
+    <img src="https://i.imgur.com/S3VXL5o.jpg" width="200" height="400"/>
     <img src="https://i.imgur.com/tF6NXJz.jpg" width="200" height="400"/>
 </p>
 <br />
