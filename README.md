@@ -9,9 +9,9 @@ Android Fundamentals - Travel Journal (Final Project, Week 10) - Google Atelieru
 </p>
 <br />
 <p align="center">
-    <img src="https://i.imgur.com/sjlB04B.jpg" width="200" height="400"/>
-    <img src="https://i.imgur.com/QLzzVdX.jpg" width="200" height="400"/>
-    <img src="https://i.imgur.com/ZViD2Wt.jpg" width="200" height="400"/>
+    <img src="https://i.imgur.com/aTrl8hi.jpg" width="200" height="400"/>
+    <img src="https://i.imgur.com/2JRopV3.jpg" width="200" height="400"/>
+    <img src="https://i.imgur.com/rCjU6RN.jpg" width="200" height="400"/>
 </p>
 <br />
 <p align="center">
