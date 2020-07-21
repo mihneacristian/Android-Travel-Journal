@@ -6,7 +6,7 @@ Android Fundamentals - Travel Journal (Final Project, Week 10) - Google Atelieru
 Travel Journal is an app that allows its users to keep track of their trips and to share them on social networks (Facebook).
 The app represents the final project for the Android Fundamentals course (Google Digital Workshop for Programmers).
 
-## Main Features :
+## Main Features:
 - Authenticate using Google Sign-in
 - Saving a trip in the Firebase Realtime Database
 - Uploading photos to the Firebase Storage (Take a picture or upload one)
