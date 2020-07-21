@@ -2,7 +2,7 @@
 
 Android Fundamentals - Travel Journal (Final Project, Week 10) - Google Atelierul Digital pentru Programatori
 
-# Main Features:
+<h1> Main Features</h1>:
 - Authenticate using Google Sign-in
 - Saving a trip in the Firebase Realtime Database
 - Uploading images to the Firebase Storage
