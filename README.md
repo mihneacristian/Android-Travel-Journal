@@ -2,6 +2,10 @@
 
 Android Fundamentals - Travel Journal (Final Project, Week 10) - Google Atelierul Digital pentru Programatori
 
+Description:
+Travel Journal is an app that allows its users to keep track of their trips and to share them on social networks (Facebook).
+The app represents the final project for the Android Fundamentals course (Google Digital Workshop for Programmers).
+
 Main Features :
 - Authenticate using Google Sign-in
 - Saving a trip in the Firebase Realtime Database
@@ -9,6 +13,11 @@ Main Features :
 - Editing or deleting a trip
 - Adding a trip to your favorites list
 - Sharing a trip on Facebook
+
+Used technologies:
+- Firebase (Authentication, Realtime Database, Storage & Crashlytics)
+- Facebook SDK (for sharing content)
+- OpenWeatherMap API
 
 <br />
 <p align="center">
