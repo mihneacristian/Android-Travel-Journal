@@ -8,11 +8,11 @@ The app represents the final project for the Android Fundamentals course (Google
 
 ## Main Features:
 - Authenticate using Google Sign-in
-- Saving a trip in the Firebase Realtime Database
-- Uploading photos to the Firebase Storage (Take a picture or upload one)
-- Editing or deleting a trip
-- Adding a trip to your favorites list
-- Sharing a trip on Facebook
+- Save a trip in the Firebase Realtime Database
+- Upload photos to the Firebase Storage (Take a picture or upload one from your local storage)
+- Edit or delete a trip
+- Add a trip to your favorites list
+- Share a trip on Facebook
 
 ## Used technologies:
 - Firebase (Authentication, Realtime Database, Storage & Crashlytics)
